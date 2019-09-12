@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "install:all": "yarn install && (cd fakeapi && yarn install)",
     "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint ."
+    "start:fakeapi": "cd ./fakeapi && yarn start",
+    "test": "jest"
   },
   "dependencies": {
     "react": "16.8.6",
