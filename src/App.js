@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from 'react-native'
 
 import {
@@ -8,10 +8,19 @@ import {
   DebugInstructions,
   ReloadInstructions
 } from 'react-native/Libraries/NewAppScreen'
+import { LocaleProvider, useTrans } from './Locale'
 
-export const App = () => {
+export const App = () => (
+  <LocaleProvider>
+    <HelloWorld />
+  </LocaleProvider>
+)
+
+const HelloWorld = () => {
+  const trans = useTrans()
+
   return (
-    <Fragment>
+    <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
@@ -22,6 +31,10 @@ export const App = () => {
             </View>
           )}
           <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>{trans('users.header_title')}</Text>
+              <Text style={styles.sectionDescription}>Test</Text>
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -49,7 +62,7 @@ export const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </Fragment>
+    </>
   )
 }
 

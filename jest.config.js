@@ -2,5 +2,6 @@
 
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['js', 'jsx', 'json']
+  moduleFileExtensions: ['js', 'jsx', 'json'],
+  setupFilesAfterEnv: ['./setupJest.js']
 }
