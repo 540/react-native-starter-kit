@@ -23,7 +23,7 @@ export const Users = ({ users, error }) => {
       <FlatList
         data={users}
         renderItem={({ item: user }) => <UserItem user={user} />}
-        keyExtractor={user => user.getId()}
+        keyExtractor={user => user.getId().toString()}
       />
     </View>
   )
@@ -33,7 +33,7 @@ const UserItem = ({ user }) => {
   const trans = useTrans()
 
   return (
-    <View style={styles.userItem}>
+    <View style={styles.userItem} testID="user-item">
       <Text color="black" type="regular" style={styles.nameLabel}>{`${trans('users.name')}:`}</Text>
       <Text color="black" type="regular">
         {user.getName()}

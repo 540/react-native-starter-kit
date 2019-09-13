@@ -1,4 +1,4 @@
-import { i18n } from 'infrastructure/Locale/i18n'
+import { i18n } from 'infrastructure/locale/i18n'
 import { UserService } from 'services/User'
 
 export class UsersPresenter {

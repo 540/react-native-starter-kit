@@ -6,7 +6,13 @@
     "install:all": "yarn install && (cd fakeapi && yarn install)",
     "start": "react-native start",
     "start:fakeapi": "cd ./fakeapi && yarn start",
-    "test": "jest"
+    "test": "yarn test:unit && yarn test:integration",
+    "test:unit": "TZ=UTC jest -c jest.config.unit.js",
+    "test:integration": "TZ=UTC jest -c jest.config.integration.js",
+    "build:e2e:android": "detox build -c android.emu.release",
+    "test:e2e:android": "detox test -c android.emu.release --cleanup",
+    "build:e2e:ios": "detox build -c ios.sim.release",
+    "test:e2e:ios": "detox test -c ios.sim.release --cleanup"
   },
   "dependencies": {
     "i18n-js": "^3.3.0",
@@ -24,8 +30,10 @@
     "@babel/core": "^7.6.0",
     "@babel/runtime": "^7.6.0",
     "@react-native-community/eslint-config": "^0.0.5",
+    "@testing-library/react-native": "^4.0.9",
     "babel-jest": "^24.9.0",
     "babel-plugin-module-resolver": "^3.2.0",
+    "detox": "^14.3.0",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
@@ -33,11 +41,29 @@
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
+    "jest-fetch-mock": "^2.1.2",
     "lint-staged": "^9.2.5",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.release": {
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/ReactNativeStarterKit.app",
+        "build": "xcodebuild -UseModernBuildSystem=NO -workspace ios/ReactNativeStarterKit.xcworkspace -scheme ReactNativeStarterKit -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_5X_API_26"
+      }
+    },
+    "test-runner": "jest"
   }
 }

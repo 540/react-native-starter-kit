@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { Users } from './Users'
 import { Header } from 'screens/_components/Header'
 
-const createRootNavigator = (initialRouteName?: string) =>
+export const createRootNavigator = (initialRouteName?: string) =>
   createStackNavigator(
     {
       [routeName(routes.USERS)]: {

@@ -12,5 +12,6 @@ module.exports = {
     '^theme': '<rootDir>/src/ui/theme',
     '^components/(.*)$': '<rootDir>/src/ui/components/$1'
   },
-  setupFilesAfterEnv: ['./setupJest.js']
+  setupFilesAfterEnv: ['./setupJest.js'],
+  transformIgnorePatterns: ['node_modules/(?!(react-native|react-navigation|@react-navigation))']
 }

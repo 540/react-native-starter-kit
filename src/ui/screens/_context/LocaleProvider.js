@@ -1,6 +1,6 @@
 import React from 'react'
 import isUndefined from 'lodash/isUndefined'
-import { i18n, Languages } from 'infrastructure/Locale/i18n'
+import { i18n, Languages } from 'infrastructure/locale/i18n'
 import { LocaleContext } from './LocaleContext'
 
 export class LocaleProvider extends React.Component {
