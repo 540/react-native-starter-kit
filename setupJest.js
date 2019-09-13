@@ -1,3 +1,3 @@
-import { mockReactNativeLocalize } from './__mocks__/mockReactNativeLocalize'
+import { mockReactNativeLocalize } from './src/core/infrastructure/__mocks__/mockReactNativeLocalize'
 
 jest.mock('react-native-localize', () => mockReactNativeLocalize)

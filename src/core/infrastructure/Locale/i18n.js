@@ -1,6 +1,6 @@
 import i18nJs from 'i18n-js'
 import { findBestAvailableLanguage, getLocales } from 'react-native-localize'
-import { es } from '../locales/es'
+import { es } from '../../../../locales/es'
 
 export const i18n = {
   init: async () => {

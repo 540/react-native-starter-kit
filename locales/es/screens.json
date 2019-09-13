@@ -1,5 +1,7 @@
 {
   "users": {
-    "header_title": "Lista de usuarios"
+    "header_title": "Lista de usuarios",
+    "title": "Usuarios",
+    "name": "Nombre"
   }
 }

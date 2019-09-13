@@ -1,15 +1,7 @@
 import React from 'react'
 import isUndefined from 'lodash/isUndefined'
-import { i18n, Languages } from './i18n'
-
-const defaultContext = {
-  language: undefined,
-  translate: () => ''
-}
-
-const LocaleContext = React.createContext(defaultContext)
-
-export const useTrans = () => React.useContext(LocaleContext).translate
+import { i18n, Languages } from 'infrastructure/Locale/i18n'
+import { LocaleContext } from './LocaleContext'
 
 export class LocaleProvider extends React.Component {
   constructor(props: Props) {
