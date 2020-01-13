@@ -5,13 +5,13 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { Users } from './Users'
 import { Header } from 'screens/_components/Header'
 
-export const createRootNavigator = (initialRouteName?: string) =>
+export const createRootNavigator = initialRouteName =>
   createStackNavigator(
     {
       [routeName(routes.USERS)]: {
         screen: Users,
         navigationOptions: {
-          header: <Header title="users.header_title" />
+          header: () => <Header title="users.header_title" />
         }
       }
     },

@@ -4,7 +4,7 @@ import { i18n, Languages } from 'infrastructure/locale/i18n'
 import { LocaleContext } from './LocaleContext'
 
 export class LocaleProvider extends React.Component {
-  constructor(props: Props) {
+  constructor(props) {
     super(props)
 
     this.state = {

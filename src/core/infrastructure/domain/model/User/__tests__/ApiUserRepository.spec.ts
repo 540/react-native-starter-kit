@@ -2,20 +2,6 @@ import { ApiUserRepository } from '../ApiUserRepository'
 import { apiClient } from 'infrastructure/api/apiClient'
 import { User } from 'domain/model/User/User'
 
-describe('ApiUserRepository', () => {
-  afterEach(() => {
-    jest.resetAllMocks()
-  })
-
-  it('finds comic by character id', async () => {
-    jest.spyOn(apiClient, 'users').mockResolvedValue(usersDTO)
-
-    const users = await ApiUserRepository.all()
-
-    expect(users).toEqual([new User(1, 'Leanne Graham'), new User(2, 'Ervin Howell')])
-  })
-})
-
 const usersDTO = [
   {
     id: 1,
@@ -62,3 +48,17 @@ const usersDTO = [
     website: 'anastasia.net'
   }
 ]
+
+describe('ApiUserRepository', () => {
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+
+  it('finds comic by character id', async () => {
+    jest.spyOn(apiClient, 'users').mockResolvedValue(usersDTO)
+
+    const users = await ApiUserRepository.all()
+
+    expect(users).toEqual([new User(1, 'Leanne Graham'), new User(2, 'Ervin Howell')])
+  })
+})

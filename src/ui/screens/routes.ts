@@ -4,7 +4,7 @@ export const routes = {
   USERS: { name: 'User' }
 }
 
-export const routeName = route => {
+export const routeName = (route: { name: string }): string => {
   if (isUndefined(route)) {
     return ''
   }
